@@ -28,6 +28,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         println(PFUser.currentUser())
         
         
+        
+        //Luke Was Here
+        
     }
     
     override func didReceiveMemoryWarning() {
