@@ -101,6 +101,29 @@
                                     <action selector="signUp:" destination="4Dx-kA-K6v" eventType="touchUpInside" id="gRJ-Be-jvP"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wy-B7-c9r">
+                                <rect key="frame" x="115" y="258" width="91" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QXy-Xe-ey4"/>
+                                    <constraint firstAttribute="width" constant="91" id="Y68-bi-Gjh"/>
+                                </constraints>
+                                <state key="normal" title="Log In">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUp:" destination="4Dx-kA-K6v" eventType="touchUpInside" id="8PF-mD-e8c"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the form below to log in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdv-F9-DEm">
+                                <rect key="frame" x="16" y="75" width="288" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="jBW-Xt-qyY"/>
+                                    <constraint firstAttribute="height" constant="48" id="u7n-GB-N3e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -111,21 +134,30 @@
                             <constraint firstItem="tD7-fd-Wfs" firstAttribute="top" secondItem="KX0-hb-WIk" secondAttribute="bottom" constant="67" id="KNP-mw-rmQ"/>
                             <constraint firstAttribute="centerX" secondItem="KX0-hb-WIk" secondAttribute="centerX" id="Lcs-Zf-0F6"/>
                             <constraint firstItem="KX0-hb-WIk" firstAttribute="top" secondItem="fpl-lt-58W" secondAttribute="bottom" constant="15" id="Mnz-uO-8lf"/>
+                            <constraint firstItem="Qdv-F9-DEm" firstAttribute="bottom" secondItem="IjY-s5-Wp9" secondAttribute="bottom" id="NPD-vA-qMe"/>
+                            <constraint firstItem="5Wy-B7-c9r" firstAttribute="trailing" secondItem="XZ1-Dg-kjb" secondAttribute="trailing" id="SpQ-cu-baF"/>
                             <constraint firstItem="tD7-fd-Wfs" firstAttribute="leading" secondItem="Bwx-Pm-t4C" secondAttribute="trailing" constant="3" id="Tgz-rc-Ab1"/>
                             <constraint firstItem="IjY-s5-Wp9" firstAttribute="top" secondItem="XZa-m3-ilW" secondAttribute="bottom" constant="55" id="Ton-lN-VQa"/>
+                            <constraint firstItem="5Wy-B7-c9r" firstAttribute="bottom" secondItem="XZ1-Dg-kjb" secondAttribute="bottom" id="XVw-Iw-RNn"/>
                             <constraint firstItem="qBp-Cy-WZX" firstAttribute="top" secondItem="KX0-hb-WIk" secondAttribute="bottom" constant="71" id="YBC-xe-kgC"/>
+                            <constraint firstItem="5Wy-B7-c9r" firstAttribute="leading" secondItem="XZ1-Dg-kjb" secondAttribute="leading" id="aWD-Je-dpD"/>
                             <constraint firstItem="tbh-24-D8I" firstAttribute="top" secondItem="XZa-m3-ilW" secondAttribute="bottom" constant="8" id="bR7-qo-Es2"/>
                             <constraint firstAttribute="centerX" secondItem="fpl-lt-58W" secondAttribute="centerX" id="dNG-Mo-9KM"/>
                             <constraint firstAttribute="centerX" secondItem="tbh-24-D8I" secondAttribute="centerX" id="dTJ-YJ-5bG"/>
+                            <constraint firstItem="5Wy-B7-c9r" firstAttribute="top" secondItem="XZ1-Dg-kjb" secondAttribute="top" id="h6X-E4-UDj"/>
                             <constraint firstItem="fpl-lt-58W" firstAttribute="top" secondItem="IjY-s5-Wp9" secondAttribute="bottom" constant="18" id="iFu-uv-NUo"/>
                             <constraint firstAttribute="centerX" secondItem="Bwx-Pm-t4C" secondAttribute="centerX" id="nL1-ei-iYw"/>
+                            <constraint firstItem="Qdv-F9-DEm" firstAttribute="leading" secondItem="IjY-s5-Wp9" secondAttribute="leading" id="nb3-Th-IAd"/>
                             <constraint firstItem="XZ1-Dg-kjb" firstAttribute="top" secondItem="KX0-hb-WIk" secondAttribute="bottom" constant="42" id="nbD-Ps-E7H"/>
+                            <constraint firstItem="Qdv-F9-DEm" firstAttribute="top" secondItem="IjY-s5-Wp9" secondAttribute="top" id="oFA-Fz-EcS"/>
+                            <constraint firstItem="Qdv-F9-DEm" firstAttribute="trailing" secondItem="IjY-s5-Wp9" secondAttribute="trailing" id="uz4-uv-x25"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="alreadyRegistered" destination="qBp-Cy-WZX" id="gjv-vE-uhP"/>
+                        <outlet property="logInLabel" destination="Qdv-F9-DEm" id="cjO-px-8cD"/>
                         <outlet property="password" destination="KX0-hb-WIk" id="I54-uf-6hM"/>
                         <outlet property="signUpButton" destination="XZ1-Dg-kjb" id="aSD-Av-HAR"/>
                         <outlet property="signUpLabel" destination="IjY-s5-Wp9" id="Tuy-vw-hPu"/>

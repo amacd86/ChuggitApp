@@ -18,6 +18,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet var password: UITextField!
     @IBOutlet var alreadyRegistered: UILabel!
     @IBOutlet var signUpLabel: UILabel!
+    @IBOutlet var logInLabel: UILabel!
     @IBOutlet var signUpButton: UIButton!
     @IBOutlet var signupToggleButton: UIButton!
     
@@ -27,6 +28,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         println(PFUser.currentUser())
         
+        logInLabel.alpha = 0
+        
+        
+        //Luke Was Here
         
     }
     
@@ -51,28 +56,50 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         //Instead of doubling up on the code maybe make an array to store the data?
         
+//        if signupActive == true {
+//            signupActive = false
+//            signUpLabel.text = "Use the form below to log in"
+//            signUpButton.setTitle("Log In", forState: UIControlState.Normal)
+//            alreadyRegistered.text = "Not Registered"
+//            signupToggleButton.setTitle("Sign Up", forState: UIControlState.Normal)
+//            
+//        } else {
+//            signupActive = true
+//            signUpLabel.text = "Use the form below to sign up"
+//            signUpButton.setTitle("Sign Up", forState: UIControlState.Normal)
+//            alreadyRegistered.text = "Already Registered"
+//            signupToggleButton.setTitle("Log In", forState: UIControlState.Normal)
+//        }
         if signupActive == true {
             signupActive = false
-            signUpLabel.text = "Use the form below to log in"
-            signUpButton.setTitle("Log In", forState: UIControlState.Normal)
-            alreadyRegistered.text = "Not Registered"
-            signupToggleButton.setTitle("Sign Up", forState: UIControlState.Normal)
+            
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.logInLabel.alpha = 1
+                self.signUpLabel.alpha = 0
+                self.signUpButton.setTitle("Log In", forState: UIControlState.Normal)
+                self.alreadyRegistered.text = "Not Registered"
+                self.signupToggleButton.setTitle("Sign Up", forState: UIControlState.Normal)
+            })
+            
             
         } else {
-            signupActive = true
-            signupActive = false
-            signUpLabel.text = "Use the form below to sign up"
-            signUpButton.setTitle("Sign Up", forState: UIControlState.Normal)
-            alreadyRegistered.text = "Already Registered"
-            signupToggleButton.setTitle("Log In", forState: UIControlState.Normal)
+             signupActive = true
+            
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.logInLabel.alpha = 0
+                self.signUpLabel.alpha = 1
+                self.signUpButton.setTitle("Sign Up", forState: UIControlState.Normal)
+                self.alreadyRegistered.text = "Already Registered"
+                self.signupToggleButton.setTitle("Log In", forState: UIControlState.Normal)
+            })
         }
+
         
     }
     
     
     //Remember to add in length requirements and shit for username and pass with else if statement
     @IBAction func signUp(sender: AnyObject) {
-        
         
         var error = ""
         
