@@ -27,12 +27,27 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         // Do any additional setup after loading the view, typically from a nib.
         
         println(PFUser.currentUser())
+        /*Alright so with this what I am going to to do print the currentuser to the logs
+        and then check to see if there is a currentuser. As long as you are logged into Parse
+        on your device then there will be a currentuser. And when we see that currentuser we
+        can just jump to the segue to the user table, which bypasses the need to log in everytime.
+        */
+        
         
         logInLabel.alpha = 0
         
         
         //Luke Was Here
         
+    }
+    
+    // Using viewDidAppear because viewDidLoad happens before our view even appears right?
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        if PFUser.currentUser() != nil {
+            self.performSegueWithIdentifier("jumpToUserTable", sender: self)
+        }
     }
     
     override func didReceiveMemoryWarning() {

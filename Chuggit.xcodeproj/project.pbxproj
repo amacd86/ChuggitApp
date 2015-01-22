@@ -27,6 +27,7 @@
 		4CAC024F1A708367006FD62E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAC024E1A708367006FD62E /* AudioToolbox.framework */; };
 		4CAC02521A70840F006FD62E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAC02501A70840F006FD62E /* Bolts.framework */; };
 		4CAC02531A708411006FD62E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAC02511A70840F006FD62E /* Parse.framework */; };
+		4CB994C51A714DD50049AC24 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB994C41A714DD50049AC24 /* UserTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		4CAC02501A70840F006FD62E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		4CAC02511A70840F006FD62E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		4CAC02541A7085D9006FD62E /* Chuggit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chuggit-Bridging-Header.h"; sourceTree = "<group>"; };
+		4CB994C41A714DD50049AC24 /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				4CAC02541A7085D9006FD62E /* Chuggit-Bridging-Header.h */,
 				4CAC02171A707F57006FD62E /* ViewController.swift */,
 				4CAC02191A707F57006FD62E /* Main.storyboard */,
+				4CB994C41A714DD50049AC24 /* UserTableViewController.swift */,
 				4CAC021C1A707F57006FD62E /* Images.xcassets */,
 				4CAC021E1A707F57006FD62E /* LaunchScreen.xib */,
 				4CAC02141A707F57006FD62E /* Chuggit.xcdatamodeld */,
@@ -271,6 +274,7 @@
 			files = (
 				4CAC02181A707F57006FD62E /* ViewController.swift in Sources */,
 				4CAC02131A707F57006FD62E /* AppDelegate.swift in Sources */,
+				4CB994C51A714DD50049AC24 /* UserTableViewController.swift in Sources */,
 				4CAC02161A707F57006FD62E /* Chuggit.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +482,7 @@
 				4CAC02311A707F58006FD62E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CAC02321A707F58006FD62E /* Build configuration list for PBXNativeTarget "ChuggitTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +491,7 @@
 				4CAC02341A707F58006FD62E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
