@@ -71,9 +71,12 @@ class UserTableViewController: UITableViewController {
             query.findObjectsInBackgroundWithBlock {
                 (objects: [AnyObject]!, error: NSError!) -> Void in
                 if error == nil {
-                   
+                   /*my object.deleteInBackgorundWithTarget does not seem to be working
+                    I want to clear out the objects so that you are not following the same person many times
+                    as it is right now in parse...
+                    */
                     for object in objects {
-                        object.deleteInBackgroundWithTarget(self, selector: nil)
+                        object.deleteInBackgroundWithTarget(nil, selector: nil)
                     }
                 } else {
                     // Log details of the failure
