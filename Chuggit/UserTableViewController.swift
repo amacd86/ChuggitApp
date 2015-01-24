@@ -13,6 +13,7 @@ class UserTableViewController: UITableViewController {
     var users = [""]
     var following = [Bool]()
     
+    var refresher: UIRefreshControl!
     
     
     override func viewDidLoad() {
@@ -21,9 +22,19 @@ class UserTableViewController: UITableViewController {
         // Below [AnyObject!] is an array to display all objects instead of just one
         
         println(PFUser.currentUser())
+        
+        updateUsers()
+        
+        refresher = UIRefreshControl()
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refresher)
+    }
+    
+    func updateUsers() {
         var query = PFUser.query()
         query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error:NSError!) -> Void in
-        //Starting by removing all users so there are no repeated users in the case of refreshing the app
+            //Starting by removing all users so there are no repeated users in the case of refreshing the app
             self.users.removeAll(keepCapacity: true)
             
             for object in objects {
@@ -47,15 +58,21 @@ class UserTableViewController: UITableViewController {
                             self.following.append(isFollowing)
                             self.tableView.reloadData()
                         }else {
-                        println(error)
+                            println(error)
                         }
+                        
+                        self.refresher.endRefreshing()
                     }
                 }
             }
             self.tableView.reloadData()
             
         })
-        
+    }
+    
+    func refresh() {
+        println("refreshed")
+        updateUsers()
     }
     
     override func didReceiveMemoryWarning() {
