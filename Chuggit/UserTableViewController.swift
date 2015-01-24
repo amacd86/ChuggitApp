@@ -11,6 +11,8 @@ import UIKit
 class UserTableViewController: UITableViewController {
     
     var users = [""]
+    var following = [Bool]()
+    
     
     
     override func viewDidLoad() {
@@ -25,11 +27,29 @@ class UserTableViewController: UITableViewController {
             self.users.removeAll(keepCapacity: true)
             
             for object in objects {
-                
+                var isFollowing:Bool
                 var user:PFUser = object as PFUser
                 //Display all other users except the actual user themselves
+                
                 if user.username != PFUser.currentUser().username {
                     self.users.append(user.username)
+                    isFollowing = false
+                    
+                    var query = PFQuery(className: "followers")
+                    query.whereKey("follower", equalTo:PFUser.currentUser().username)
+                    query.whereKey("following", equalTo:user.username)
+                    query.findObjectsInBackgroundWithBlock {
+                        (objects: [AnyObject]!, error: NSError!) -> Void in
+                        if error == nil {
+                            for objects in objects {
+                                isFollowing = true
+                            }
+                            self.following.append(isFollowing)
+                            self.tableView.reloadData()
+                        }else {
+                        println(error)
+                        }
+                    }
                 }
             }
             self.tableView.reloadData()
