@@ -170,7 +170,7 @@
             </objects>
             <point key="canvasLocation" x="-399" y="63"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Users-->
         <scene sceneID="vWN-px-jsg">
             <objects>
                 <tableViewController id="ZHr-bg-ses" customClass="UserTableViewController" customModule="Chuggit" customModuleProvider="target" sceneMemberID="viewController">
@@ -191,13 +191,39 @@
                             <outlet property="delegate" destination="ZHr-bg-ses" id="mG1-aR-KrN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Xef-Ac-Sej"/>
+                    <navigationItem key="navigationItem" title="Users" id="Xef-Ac-Sej">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="hWZ-jp-Xxx">
+                            <connections>
+                                <segue destination="VN1-jv-Ahf" kind="show" id="Zg4-2e-Udx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OCg-MR-0hz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="424" y="63"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Yni-5V-ygD">
+            <objects>
+                <viewController id="VN1-jv-Ahf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ov7-Lv-AeB"/>
+                        <viewControllerLayoutGuide type="bottom" id="emt-Xk-Zuk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TAY-b0-gc0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sR1-6W-eCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801" y="63"/>
         </scene>
         <!--NavController-->
         <scene sceneID="ut4-y2-MLU">
