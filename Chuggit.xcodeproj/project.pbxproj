@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C5F05CD1A76BCF300F74641 /* postViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F05CC1A76BCF300F74641 /* postViewController.swift */; };
 		4CAC02131A707F57006FD62E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC02121A707F57006FD62E /* AppDelegate.swift */; };
 		4CAC02161A707F57006FD62E /* Chuggit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC02141A707F57006FD62E /* Chuggit.xcdatamodeld */; };
 		4CAC02181A707F57006FD62E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC02171A707F57006FD62E /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C5F05CC1A76BCF300F74641 /* postViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postViewController.swift; sourceTree = "<group>"; };
 		4CAC020D1A707F57006FD62E /* Chuggit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chuggit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAC02111A707F57006FD62E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CAC02121A707F57006FD62E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				4CAC02541A7085D9006FD62E /* Chuggit-Bridging-Header.h */,
 				4CAC02171A707F57006FD62E /* ViewController.swift */,
 				4CAC02191A707F57006FD62E /* Main.storyboard */,
+				4C5F05CC1A76BCF300F74641 /* postViewController.swift */,
 				4CB994C41A714DD50049AC24 /* UserTableViewController.swift */,
 				4CAC021C1A707F57006FD62E /* Images.xcassets */,
 				4CAC021E1A707F57006FD62E /* LaunchScreen.xib */,
@@ -274,6 +277,7 @@
 			files = (
 				4CAC02181A707F57006FD62E /* ViewController.swift in Sources */,
 				4CAC02131A707F57006FD62E /* AppDelegate.swift in Sources */,
+				4C5F05CD1A76BCF300F74641 /* postViewController.swift in Sources */,
 				4CB994C51A714DD50049AC24 /* UserTableViewController.swift in Sources */,
 				4CAC02161A707F57006FD62E /* Chuggit.xcdatamodeld in Sources */,
 			);
