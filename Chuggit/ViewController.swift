@@ -10,17 +10,17 @@ import UIKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    var signupActive = true
+    @IBOutlet var usernameField: UITextField!
+    @IBOutlet var passwordField: UITextField!
     
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    
-    @IBOutlet var username: UITextField!
-    @IBOutlet var password: UITextField!
     @IBOutlet var alreadyRegistered: UILabel!
-    @IBOutlet var signUpLabel: UILabel!
-    @IBOutlet var logInLabel: UILabel!
+    
+    @IBOutlet var topLabel: UILabel!
+    
     @IBOutlet var signUpButton: UIButton!
-    @IBOutlet var signupToggleButton: UIButton!
+    @IBOutlet var loginButton: UIButton!
+    
+    var activityIndicator: UIActivityIndicatorView!;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +33,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         can just jump to the segue to the user table, which bypasses the need to log in everytime.
         */
         
-        
-        logInLabel.alpha = 0
-        
-        
-        //Luke Was Here
+        loginButton.setTitle("Log In", forState: UIControlState.Normal)
+        signUpButton.setTitle("Sign Up", forState: UIControlState.Normal)
         
     }
     
@@ -45,9 +42,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     override func viewDidAppear(animated: Bool) {
         
-        if PFUser.currentUser() != nil {
-            self.performSegueWithIdentifier("jumpToUserTable", sender: self)
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,144 +61,177 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    @IBAction func toggleSignUp(sender: AnyObject) {
-        
-        //Instead of doubling up on the code maybe make an array to store the data?
-        
+//    @IBAction func toggleSignUp(sender: AnyObject) {
+//        
+//        //Instead of doubling up on the code maybe make an array to store the data?
+//        
+////        if signupActive == true {
+////            signupActive = false
+////            signUpLabel.text = "Use the form below to log in"
+////            signUpButton.setTitle("Log In", forState: UIControlState.Normal)
+////            alreadyRegistered.text = "Not Registered"
+////            signupToggleButton.setTitle("Sign Up", forState: UIControlState.Normal)
+////            
+////        } else {
+////            signupActive = true
+////            signUpLabel.text = "Use the form below to sign up"
+////            signUpButton.setTitle("Sign Up", forState: UIControlState.Normal)
+////            alreadyRegistered.text = "Already Registered"
+////            signupToggleButton.setTitle("Log In", forState: UIControlState.Normal)
+////        }
 //        if signupActive == true {
 //            signupActive = false
-//            signUpLabel.text = "Use the form below to log in"
-//            signUpButton.setTitle("Log In", forState: UIControlState.Normal)
-//            alreadyRegistered.text = "Not Registered"
-//            signupToggleButton.setTitle("Sign Up", forState: UIControlState.Normal)
+//            
+//            UIView.animateWithDuration(0.5, animations: { () -> Void in
+//                self.logInLabel.alpha = 1
+//                self.signUpLabel.alpha = 0
+//                self.signUpButton.setTitle("Log In", forState: UIControlState.Normal)
+//                self.alreadyRegistered.text = "Not Registered"
+//                self.signupToggleButton.setTitle("Sign Up", forState: UIControlState.Normal)
+//            })
+//            
 //            
 //        } else {
-//            signupActive = true
-//            signUpLabel.text = "Use the form below to sign up"
-//            signUpButton.setTitle("Sign Up", forState: UIControlState.Normal)
-//            alreadyRegistered.text = "Already Registered"
-//            signupToggleButton.setTitle("Log In", forState: UIControlState.Normal)
+//             signupActive = true
+//            
+//            UIView.animateWithDuration(0.5, animations: { () -> Void in
+//                self.logInLabel.alpha = 0
+//                self.signUpLabel.alpha = 1
+//                self.signUpButton.setTitle("Sign Up", forState: UIControlState.Normal)
+//                self.alreadyRegistered.text = "Already Registered"
+//                self.signupToggleButton.setTitle("Log In", forState: UIControlState.Normal)
+//            })
 //        }
-        if signupActive == true {
-            signupActive = false
+//
+//        
+//    }
+    
+    func showSpinnerOnLogin(){
+        UIView.animateWithDuration(0.33, animations: { () -> Void in
+            self.loginButton.setTitle("", forState: UIControlState.Normal)
             
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.logInLabel.alpha = 1
-                self.signUpLabel.alpha = 0
-                self.signUpButton.setTitle("Log In", forState: UIControlState.Normal)
-                self.alreadyRegistered.text = "Not Registered"
-                self.signupToggleButton.setTitle("Sign Up", forState: UIControlState.Normal)
-            })
+            self.activityIndicator = UIActivityIndicatorView()
             
+            self.loginButton.addSubview(self.activityIndicator)
+            self.activityIndicator.autoCenterInSuperview()
+            self.activityIndicator.startAnimating()
+        })
+    
+    }
+    
+    func showSpinnerOnSignup(){
+    
+         UIView.animateWithDuration(0.33, animations: { () -> Void in
+            self.signUpButton.setTitle("", forState: UIControlState.Normal)
+        
+            self.activityIndicator = UIActivityIndicatorView()
             
-        } else {
-             signupActive = true
-            
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.logInLabel.alpha = 0
-                self.signUpLabel.alpha = 1
-                self.signUpButton.setTitle("Sign Up", forState: UIControlState.Normal)
-                self.alreadyRegistered.text = "Already Registered"
-                self.signupToggleButton.setTitle("Log In", forState: UIControlState.Normal)
-            })
-        }
-
+            self.signUpButton.addSubview(self.activityIndicator)
+            self.activityIndicator.autoCenterInSuperview()
+            self.activityIndicator.startAnimating()
+        })
+    
+    }
+    
+    func hideSpinnerOnLogin() {
+        UIView.animateWithDuration(0.33, animations: { () -> Void in
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.removeFromSuperview()
+            self.loginButton.setTitle("Log In", forState: UIControlState.Normal)
+        })
         
     }
     
+    func hideSpinnerOnSignup() {
+    
+        UIView.animateWithDuration(0.33, animations: { () -> Void in
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.removeFromSuperview()
+            self.signUpButton.setTitle("Sign Up", forState: UIControlState.Normal)
+        })
+        
+    }
+    
+    
+    func completedLogin() {
+        if PFUser.currentUser() != nil {
+            self.performSegueWithIdentifier("jumpToUserTable", sender: self)
+        }
+    }
+    
+     @IBAction func login(sender: AnyObject) {
+        
+        self.showSpinnerOnLogin()
+        
+        PFUser.logInWithUsernameInBackground(usernameField.text, password:passwordField.text) {
+            (user: PFUser!, signupError: NSError!) -> Void in
+            
+            var isLoginValid: Bool = (signupError == nil)
+            var error: NSString!
+            
+            self.hideSpinnerOnLogin()
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
+            
+            if isLoginValid {
+                
+                println("logged in")
+                self.completedLogin()
+                
+            } else {
+                if let errorString = signupError.userInfo?["error"] as? NSString {
+                    
+                    error = errorString
+                    
+                } else {
+                    
+                    error = "Please try again later."
+                }
+                //Remember self. prefix because it is within a closure
+                self.displayAlert("Could Not Log In", error: error)
+            }
+        }
+
+    }
     
     //Remember to add in length requirements and shit for username and pass with else if statement
     @IBAction func signUp(sender: AnyObject) {
         
-        var error = ""
+        self.showSpinnerOnSignup()
         
-        if username.text == "" || password.text == "" {
-            
-            error = "Please enter a username and password"
-            
-        }
+        var user = PFUser()
+        user.username = usernameField.text
+        user.password = passwordField.text
         
-        if error != "" {
+        user.signUpInBackgroundWithBlock {
+            (succeeded: Bool!, signupError: NSError!) -> Void in
             
-            displayAlert("Error In Form", error: error)
+            var isSignupValid: Bool = (signupError == nil)
+            var error: NSString!
             
-        } else {
+            self.hideSpinnerOnSignup()
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
             
-            
-            var activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
-            activityIndicator.center = self.view.center
-            activityIndicator.hidesWhenStopped = true
-            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-            view.addSubview(activityIndicator)
-            activityIndicator.startAnimating()
-            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-            
-            /*user.email = "email@example.com"
-            // other fields can be set just like with PFObject
-            user["phone"] = "415-392-0202" */
-            
-            
-            if signupActive == true {
+            if isSignupValid {
+                // Hooray! Let them use the app now.
                 
-                var user = PFUser()
-                user.username = username.text
-                user.password = password.text
-                
-                user.signUpInBackgroundWithBlock {
-                    (succeeded: Bool!, signupError: NSError!) -> Void in
-                    
-                    activityIndicator.stopAnimating()
-                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                    
-                    if signupError == nil {
-                        // Hooray! Let them use the app now.
-                        
-                        println("signed up")
-                        
-                    } else {
-                        if let errorString = signupError.userInfo?["error"] as? NSString {
-                            
-                            error = errorString
-                            
-                        } else {
-                            
-                            error = "Please try again later."
-                        }
-                        //Remember self. prefix because it is within a closure
-                        self.displayAlert("Could Not Sign Up", error: error)
-                    }
-                }
+                println("signed up")
                 
             } else {
-                
-                PFUser.logInWithUsernameInBackground(username.text, password:password.text) {
-                    (user: PFUser!, signupError: NSError!) -> Void in
+                if let errorString = signupError.userInfo?["error"] as? NSString {
                     
+                    error = errorString
                     
-                    activityIndicator.stopAnimating()
-                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                } else {
                     
-                    if signupError == nil {
-                        
-                        println("logged in")
-                        
-                    } else {
-                        if let errorString = signupError.userInfo?["error"] as? NSString {
-                            
-                            error = errorString
-                            
-                        } else {
-                            
-                            error = "Please try again later."
-                        }
-                        //Remember self. prefix because it is within a closure
-                        self.displayAlert("Could Not Log In", error: error)
-                    }
+                    error = "Please try again later."
                 }
+                //Remember self. prefix because it is within a closure
+                self.displayAlert("Could Not Sign Up", error: error)
             }
         }
+            
+            
     }
-    
     
 }
 

@@ -29,6 +29,9 @@
 		4CAC02521A70840F006FD62E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAC02501A70840F006FD62E /* Bolts.framework */; };
 		4CAC02531A708411006FD62E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAC02511A70840F006FD62E /* Parse.framework */; };
 		4CB994C51A714DD50049AC24 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB994C41A714DD50049AC24 /* UserTableViewController.swift */; };
+		52850A241A7B07A4005A7854 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 52850A1C1A7B07A4005A7854 /* ALView+PureLayout.m */; };
+		52850A251A7B07A4005A7854 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 52850A1E1A7B07A4005A7854 /* NSArray+PureLayout.m */; };
+		52850A261A7B07A4005A7854 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 52850A201A7B07A4005A7854 /* NSLayoutConstraint+PureLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,15 @@
 		4CAC02511A70840F006FD62E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		4CAC02541A7085D9006FD62E /* Chuggit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chuggit-Bridging-Header.h"; sourceTree = "<group>"; };
 		4CB994C41A714DD50049AC24 /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		52850A1B1A7B07A4005A7854 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
+		52850A1C1A7B07A4005A7854 /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
+		52850A1D1A7B07A4005A7854 /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
+		52850A1E1A7B07A4005A7854 /* NSArray+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PureLayout.m"; sourceTree = "<group>"; };
+		52850A1F1A7B07A4005A7854 /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
+		52850A201A7B07A4005A7854 /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
+		52850A211A7B07A4005A7854 /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
+		52850A221A7B07A4005A7854 /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
+		52850A231A7B07A4005A7854 /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +131,7 @@
 				4CAC020F1A707F57006FD62E /* Chuggit */,
 				4CAC02281A707F58006FD62E /* ChuggitTests */,
 				4CAC020E1A707F57006FD62E /* Products */,
+				52850A271A7B07A9005A7854 /* External */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,6 +186,22 @@
 				4CAC022A1A707F58006FD62E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52850A271A7B07A9005A7854 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				52850A1B1A7B07A4005A7854 /* ALView+PureLayout.h */,
+				52850A1C1A7B07A4005A7854 /* ALView+PureLayout.m */,
+				52850A1D1A7B07A4005A7854 /* NSArray+PureLayout.h */,
+				52850A1E1A7B07A4005A7854 /* NSArray+PureLayout.m */,
+				52850A1F1A7B07A4005A7854 /* NSLayoutConstraint+PureLayout.h */,
+				52850A201A7B07A4005A7854 /* NSLayoutConstraint+PureLayout.m */,
+				52850A211A7B07A4005A7854 /* PureLayout.h */,
+				52850A221A7B07A4005A7854 /* PureLayout+Internal.h */,
+				52850A231A7B07A4005A7854 /* PureLayoutDefines.h */,
+			);
+			name = External;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +305,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CAC02181A707F57006FD62E /* ViewController.swift in Sources */,
+				52850A241A7B07A4005A7854 /* ALView+PureLayout.m in Sources */,
 				4CAC02131A707F57006FD62E /* AppDelegate.swift in Sources */,
+				52850A261A7B07A4005A7854 /* NSLayoutConstraint+PureLayout.m in Sources */,
+				52850A251A7B07A4005A7854 /* NSArray+PureLayout.m in Sources */,
 				4C5F05CD1A76BCF300F74641 /* postViewController.swift in Sources */,
 				4CB994C51A714DD50049AC24 /* UserTableViewController.swift in Sources */,
 				4CAC02161A707F57006FD62E /* Chuggit.xcdatamodeld in Sources */,
